@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {FirebaseContext} from './store/FirebaseContext'
-import {firebase, auth, firestore} from './Firebase/config';
+import {FirebaseContext} from './store/Context'
+import {firebase, auth, firestore,storage} from './Firebase/config';
+import Context from './store/Context'
 
 ReactDOM.render(
-<FirebaseContext.Provider value={{firebase, auth, firestore}}>
+  
+<FirebaseContext.Provider value={{firebase, auth, firestore, storage}}>
 
-<App />
+  <Context>
+
+  <App />
+
+  </Context>
 
 </FirebaseContext.Provider>
 , document.getElementById('root'));
